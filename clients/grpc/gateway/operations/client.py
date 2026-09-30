@@ -9,6 +9,7 @@ from contracts.services.gateway.operations.rpc_get_operation_receipt_pb2 import 
     GetOperationReceiptRequest,
     GetOperationReceiptResponse
 )
+
 from contracts.services.gateway.operations.rpc_get_operations_pb2 import GetOperationsRequest, GetOperationsResponse
 from contracts.services.gateway.operations.rpc_get_operations_summary_pb2 import (
     GetOperationsSummaryRequest,
@@ -185,7 +186,7 @@ class OperationsGatewayGRPCClient(GRPCClient):
 
     def make_fee_operation(self, card_id: str, account_id: str) -> MakeFeeOperationResponse:
         request = MakeFeeOperationRequest(
-            status=fake.proto_enum(OperationStatus),
+            status=fake.enum(OperationStatus),
             amount=fake.amount(),
             card_id=card_id,
             account_id=account_id
@@ -194,7 +195,7 @@ class OperationsGatewayGRPCClient(GRPCClient):
 
     def make_top_up_operation(self, card_id: str, account_id: str) -> MakeTopUpOperationResponse:
         request = MakeTopUpOperationRequest(
-            status=fake.proto_enum(OperationStatus),
+            status=fake.enum(OperationStatus),
             amount=fake.amount(),
             card_id=card_id,
             account_id=account_id
@@ -203,7 +204,7 @@ class OperationsGatewayGRPCClient(GRPCClient):
 
     def make_cashback_operation(self, card_id: str, account_id: str) -> MakeCashbackOperationResponse:
         request = MakeCashbackOperationRequest(
-            status=fake.proto_enum(OperationStatus),
+            status=fake.enum(OperationStatus),
             amount=fake.amount(),
             card_id=card_id,
             account_id=account_id
@@ -212,7 +213,7 @@ class OperationsGatewayGRPCClient(GRPCClient):
 
     def make_transfer_operation(self, card_id: str, account_id: str) -> MakeTransferOperationResponse:
         request = MakeTransferOperationRequest(
-            status=fake.proto_enum(OperationStatus),
+            status=fake.enum(OperationStatus),
             amount=fake.amount(),
             card_id=card_id,
             account_id=account_id
@@ -221,7 +222,7 @@ class OperationsGatewayGRPCClient(GRPCClient):
 
     def make_purchase_operation(self, card_id: str, account_id: str) -> MakePurchaseOperationResponse:
         request = MakePurchaseOperationRequest(
-            status=fake.proto_enum(OperationStatus),
+            status=fake.enum(OperationStatus),
             amount=fake.amount(),
             card_id=card_id,
             category=fake.category(),
@@ -231,7 +232,7 @@ class OperationsGatewayGRPCClient(GRPCClient):
 
     def make_bill_payment_operation(self, card_id: str, account_id: str) -> MakeBillPaymentOperationResponse:
         request = MakeBillPaymentOperationRequest(
-            status=fake.proto_enum(OperationStatus),
+            status=fake.enum(OperationStatus),
             amount=fake.amount(),
             card_id=card_id,
             account_id=account_id
@@ -240,7 +241,7 @@ class OperationsGatewayGRPCClient(GRPCClient):
 
     def make_cash_withdrawal_operation(self, card_id: str, account_id: str) -> MakeCashWithdrawalOperationResponse:
         request = MakeCashWithdrawalOperationRequest(
-            status=fake.proto_enum(OperationStatus),
+            status=fake.enum(OperationStatus),
             amount=fake.amount(),
             card_id=card_id,
             account_id=account_id
