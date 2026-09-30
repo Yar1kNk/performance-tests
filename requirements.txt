@@ -6,3 +6,4 @@ httpx==0.28.1
 locust==2.46.6
 pydantic==2.13.5
 pydantic-settings==2.15.0
+load-testing-hub==0.6.0

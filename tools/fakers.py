@@ -18,10 +18,11 @@ class Fake:
     def enum(self, value: type[TEnum]) -> TEnum:
         """
         Выбирает случайное значение из enum-типа.
-
-        :param value: Enum-класс для генерации значения.
-        :return: Случайное значение из перечисления.
+        Поддерживает как обычные Python Enum, так и protobuf EnumTypeWrapper.
         """
+        if not isinstance(value, type) and hasattr(value, "values"):
+            return self.faker.random_element(elements=value.values()[1:])
+
         return self.faker.enum(value)
 
     def email(self) -> str:
